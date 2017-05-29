@@ -1,0 +1,30 @@
+<div class="modal-content">
+  <form class="form" #buyDrugForm="ngForm" (ngSubmit)="buyDrugs()">
+    <div class="modal-header">
+      <h5 class="modal-title">Buy Drugs</h5>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <p class="lead">{{drug.Name}} To Buy</p>
+        <input class="form-control"
+               name="buyAmount"
+               [(ngModel)]="buyAmount"
+               required
+               minValue="0"
+               maxValue="{{maxAmount}}"
+               type="number"/>
+      </div>
+      <div *ngIf="formErrors.buyAmount" class="alert alert-danger">
+        {{ formErrors.buyAmount }}
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit"
+              [disabled]="!buyDrugForm.form.valid"
+              class="btn btn-primary">Buy {{ buyAmount }} {{drug.Name}}</button>
+      <button class="btn btn-default"
+              type="button"
+              (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

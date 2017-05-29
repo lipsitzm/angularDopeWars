@@ -1,0 +1,43 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded" role="navigation">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">
+    <i class="fa fa-home"></i>
+    <span>Dope Wars</span>
+  </a>
+
+  <div class="collapse navbar-collapse" id="dwNavbarCommands">
+     <ul class="navbar-nav mr-auto">
+       <li class="nav-item">
+         <div ngbDropdown class="d-inline-block">
+           <button class="btn btn-outline-primary" id="gameLengthDropDown" ngbDropdownToggle>Game Length</button>
+           <div class="dropdown-menu" aria-labelledby="gameLengthDropDown">
+             <button *ngFor="let dayOption of gameEngine.DayOptions"
+                     (click)="dayOptionChange(dayOption)"
+                     [ngClass]="setDayOptionActiveClass(dayOption.TotalDays)"
+                     class="dropdown-item">
+              {{dayOption.Name}}
+             </button>
+           </div>
+         </div>
+       </li>
+       <li class="nav-item">
+         <div ngbDropdown class="d-inline-block">
+           <button class="btn btn-outline-primary" id="diffLevelDropDown" ngbDropdownToggle>Difficulty Level</button>
+           <div class="dropdown-menu" aria-labelledby="diffLevelDropDown">
+             <button *ngFor="let diffLevel of gameEngine.DifficultyLevels"
+                     (click)="difficultyLevelChange(diffLevel)"
+                     [ngClass]="setDifficultyLevelActiveClass(diffLevel.Name)"
+                     class="dropdown-item">
+               {{diffLevel.Name}}
+             </button>
+           </div>
+         </div>
+       </li>
+       <li class="nav-item">
+         <button (click)="restartGame()">Restart Game</button>
+       </li>
+     </ul>
+   </div>
+</nav>

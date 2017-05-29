@@ -1,0 +1,14 @@
+<div class="row">
+    <city class="col-xs-12 col-sm-6"
+          [city_info]="gameEngine.CurrentCity"
+          [drug_list]="gameEngine.Drugs"
+          [drugs_available]="gameEngine.DrugsAvailable"></city>
+    <div class="col-xs-12 col-sm-6">
+      <!-- Can this get moved into it's own view / model? I can't get the change binding to work right now -->
+      <h1>Travel to</h1>
+      <!-- class="btn btn-default btn-block ${city.Name == $parent.GameEngine.CurrentCity.Name ? 'active' : ''}" -->
+      <button *ngFor="let city of gameEngine.Cities; let i = index"
+              class="btn btn-default btn-block"
+              (click)="MoveCity(i)">{{city.Name}}</button>
+    </div>
+  </div>

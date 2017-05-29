@@ -1,1 +1,113 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~font-awesome/css/font-awesome.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html, body
+{
+  font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.splash {
+  text-align: center;
+  margin: 10% 0 0 0;
+  box-sizing: border-box;
+}
+
+.mrg-btm-10-pct {
+  margin-bottom: 10%;
+}
+
+.splash .message {
+  font-size: 72px;
+  line-height: 72px;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+  text-transform: uppercase;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.splash .fa-spinner {
+  text-align: center;
+  display: inline-block;
+  font-size: 72px;
+  margin-top: 50px;
+}
+
+.page-host {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+section {
+  margin: 0 20px;
+}
+
+.navbar-nav li.loader {
+  margin: 12px 24px 0 6px;
+}
+
+.panel-heading {
+  cursor: pointer;
+}
+
+.panel-default > .panel-heading:hover {
+  background-color: #e6e6e6;
+}
+
+.aurelia-validation-message{
+  display:  inline;
+  margin-left : 5px;
+}
+.has-success label {
+  color: #3c763d;
+}
+.has-warning .help-block, .has-warning label {
+  color: red;
+}
+
+.most-expensive-drug-cost {
+  color: red;
+}
+.middle-expensive-drug-cost {
+  color: indianred;
+}
+.middle-drug-cost {
+  color: #000;
+}
+.middle-cheapest-drug-cost {
+  color: #4CC417;
+}
+.cheapest-drug-cost {
+  color: #347C17;
+}
+.noBands.fa.fa-arrow-up, .noBands.fa.fa-arrow-down {
+  font-size: 0;
+}
+.oneBand.fa.fa-arrow-up, .oneBand.fa.fa-arrow-down {
+  font-size: .7em;
+}
+.twoBands.fa.fa-arrow-up, .twoBands.fa.fa-arrow-down {
+  font-size: .9em;
+}
+.threeBands.fa.fa-arrow-up, .threeBands.fa.fa-arrow-down {
+  font-size: 1.1em;
+}
+.fourBands.fa.fa-arrow-up, .fourBands.fa.fa-arrow-down {
+  font-size: 1.3em;
+}
+
+
+.footer-holder {
+  font-style: italic;
+  background-color: darkgray;
+  margin-top:50px;
+  padding: 50px 0;
+}

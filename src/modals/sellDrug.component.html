@@ -1,0 +1,33 @@
+<div class="modal-content">
+  <form class="form" #sellDrugForm="ngForm" (ngSubmit)="sellDrugs()">
+    <div class="modal-header">
+      <h5 class="modal-title">Sell Drugs</h5>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <p class="lead">{{drug.Name}} To Sell</p>
+        <div class="row">
+          <input class="form-control col-4"
+                 name="sellAmount"
+                 [(ngModel)]="sellAmount"
+                 required
+                 minValue="0"
+                 maxValue="{{curDrugCount}}"
+                 type="number"/>
+            <p class="col-8"> for {{(drug.Price * sellAmount) | customCurrencyPipe}}</p>
+        </div>
+      </div>
+      <div *ngIf="formErrors.sellAmount" class="alert alert-danger">
+        {{ formErrors.sellAmount }}
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit"
+              [disabled]="!sellDrugForm.form.valid"
+              class="btn btn-primary">Sell {{ sellAmount }} {{drug.Name}}</button>
+      <button class="btn btn-default"
+              type="button"
+              (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+<div class="modal-content">
+  <form class="form" #loanForm="ngForm" (ngSubmit)="payDebt()">
+    <div class="modal-header">
+      <h5 class="modal-title">Amount to Pay Back</h5>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <p class="lead">The loan shark gave you {{ player.LoanOutstanding | customCurrencyPipe }} with a vig of {{ player.InterestRate | percentFormatPipe }}. You have {{ player.Money | customCurrencyPipe }} in cash.</p>
+        <input class="form-control"
+               name="paymentAmount"
+               [(ngModel)]="paymentAmount"
+               required
+               minValue="0"
+               maxValue="{{maxAmount}}"
+               type="number"/>
+      </div>
+      <div *ngIf="formErrors.paymentAmount" class="alert alert-danger">
+        {{ formErrors.paymentAmount }}
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit"
+              [disabled]="!loanForm.form.valid"
+              class="btn btn-primary">Pay {{ paymentAmount | customCurrencyPipe }} Back</button>
+      <button class="btn btn-default"
+              type="button"
+              (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,8 @@
+<div *ngFor="let drugVM of drugViewModels">
+   <div class="btn btn-secondary btn-block"
+        (click)="ShowDrugDialog(drugVM.Drug)"
+        *ngIf="drugVM.Drug.Available">
+    <strong [ngClass]="drugVM.Drug.ThresholdColorClass">{{drugVM.Drug.Name}} - <span>{{drugVM.Drug.Price | customCurrencyPipe}}</span>&nbsp;<span [ngClass]="PriceChangeDirectionAndThresholdChangeClasses"></span></strong>
+    <div class="pull-right" *ngIf="drugVM.BackpackCount > 0">{{drugVM.BackpackCount}} ({{drugVM.HighestBuyPrice | customCurrencyPipe}})</div>
+  </div>
+</div>
